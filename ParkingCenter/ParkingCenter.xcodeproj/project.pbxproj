@@ -9,19 +9,23 @@
 /* Begin PBXBuildFile section */
 		44476BFB2AD3D1D7002C456B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476BFA2AD3D1D7002C456B /* AppDelegate.swift */; };
 		44476BFD2AD3D1D7002C456B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476BFC2AD3D1D7002C456B /* SceneDelegate.swift */; };
-		44476BFF2AD3D1D7002C456B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476BFE2AD3D1D7002C456B /* ViewController.swift */; };
+		44476BFF2AD3D1D7002C456B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476BFE2AD3D1D7002C456B /* HomeViewController.swift */; };
 		44476C042AD3D1D8002C456B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44476C032AD3D1D8002C456B /* Assets.xcassets */; };
 		44476C072AD3D1D8002C456B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44476C052AD3D1D8002C456B /* LaunchScreen.storyboard */; };
+		44476C152AD3E38E002C456B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C142AD3E38E002C456B /* HomeViewModel.swift */; };
+		44476C172AD40C4B002C456B /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C162AD40C4B002C456B /* UserLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		44476BF72AD3D1D7002C456B /* ParkingCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkingCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44476BFA2AD3D1D7002C456B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44476BFC2AD3D1D7002C456B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		44476BFE2AD3D1D7002C456B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		44476BFE2AD3D1D7002C456B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		44476C032AD3D1D8002C456B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44476C062AD3D1D8002C456B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44476C082AD3D1D8002C456B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44476C142AD3E38E002C456B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		44476C162AD40C4B002C456B /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,56 @@
 		44476BF92AD3D1D7002C456B /* ParkingCenter */ = {
 			isa = PBXGroup;
 			children = (
-				44476BFA2AD3D1D7002C456B /* AppDelegate.swift */,
-				44476BFC2AD3D1D7002C456B /* SceneDelegate.swift */,
-				44476BFE2AD3D1D7002C456B /* ViewController.swift */,
-				44476C032AD3D1D8002C456B /* Assets.xcassets */,
+				44476C102AD3E27A002C456B /* View */,
+				44476C132AD3E369002C456B /* ViewModel */,
+				44476C182AD40C5A002C456B /* Model */,
+				44476C0E2AD3D9BC002C456B /* Application */,
+				44476C0F2AD3DA38002C456B /* Resource */,
 				44476C052AD3D1D8002C456B /* LaunchScreen.storyboard */,
-				44476C082AD3D1D8002C456B /* Info.plist */,
 			);
 			path = ParkingCenter;
+			sourceTree = "<group>";
+		};
+		44476C0E2AD3D9BC002C456B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				44476BFA2AD3D1D7002C456B /* AppDelegate.swift */,
+				44476BFC2AD3D1D7002C456B /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		44476C0F2AD3DA38002C456B /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				44476C032AD3D1D8002C456B /* Assets.xcassets */,
+				44476C082AD3D1D8002C456B /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		44476C102AD3E27A002C456B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				44476BFE2AD3D1D7002C456B /* HomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		44476C132AD3E369002C456B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				44476C142AD3E38E002C456B /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		44476C182AD40C5A002C456B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				44476C162AD40C4B002C456B /* UserLocation.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,8 +180,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44476BFF2AD3D1D7002C456B /* ViewController.swift in Sources */,
+				44476BFF2AD3D1D7002C456B /* HomeViewController.swift in Sources */,
+				44476C172AD40C4B002C456B /* UserLocation.swift in Sources */,
 				44476BFB2AD3D1D7002C456B /* AppDelegate.swift in Sources */,
+				44476C152AD3E38E002C456B /* HomeViewModel.swift in Sources */,
 				44476BFD2AD3D1D7002C456B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,7 +324,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ParkingCenter/Info.plist;
+				INFOPLIST_FILE = ParkingCenter/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -302,7 +350,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ParkingCenter/Info.plist;
+				INFOPLIST_FILE = ParkingCenter/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
