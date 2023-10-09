@@ -56,7 +56,8 @@ final class HomeViewController: UIViewController {
     }
     
     private func checkAuthorizationStatus() {
-        guard viewModel.shouldChangeSettings() else {
+        let shouldChangeSettings = viewModel.shouldChangeSettings()
+        guard shouldChangeSettings == false else {
             showRequestLocationServiceAlert()
             return
         }
