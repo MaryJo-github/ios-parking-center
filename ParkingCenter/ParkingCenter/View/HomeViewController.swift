@@ -32,7 +32,6 @@ final class HomeViewController: UIViewController {
         configureUI()
         setupConstraints()
         setupLocation()
-        receiveData()
     }
     
     private func configureUI() {
@@ -63,42 +62,6 @@ final class HomeViewController: UIViewController {
         }
         
         viewModel.checkAuthorizationStatus()
-    }
-    
-    func receiveData() {
-        let apiKey = Bundle.main.infoDictionary?["ParkingAPIKey"] as! String
-        let fileType = "json"
-        let serviceName = "GetParkingInfo"
-        let startIndex = "1"
-        let endIndex = "5"
-        let address = "관악구"
-        
-        let baseURL = "http://openapi.seoul.go.kr:8088"
-        let urlString = "\(baseURL)/\(apiKey)/\(fileType)/\(serviceName)/\(startIndex)/\(endIndex)/\(address)"
-        
-        let url = URL(string: makeStringKoreanEncoded(urlString))!
-        
-        NetworkingManager().fetchData(url: url) { result in
-            switch result {
-            case .success(let data):
-                self.decodeData(data)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    func decodeData(_ data: Data) {
-        do {
-            let decodedData = try JSONDecoder().decode(ParkingLot.self, from: data)
-            print(decodedData)
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
-    func makeStringKoreanEncoded(_ string: String) -> String {
-        return string.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? string
     }
 }
 

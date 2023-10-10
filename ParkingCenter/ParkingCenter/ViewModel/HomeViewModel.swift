@@ -9,6 +9,8 @@ import CoreLocation
 
 final class HomeViewModel {
     let userLocation = UserLocation()
+    let parkingLotManager = ParkingLotManager()
+    var parkingLotData: ParkingLot?
     
     func shouldChangeSettings() -> Bool {
         switch userLocation.authorizationStatus {
@@ -27,6 +29,17 @@ final class HomeViewModel {
                 userLocation.requestLocation()
             default:
                 fatalError("Invalid Authorization Status")
+        }
+    }
+    
+    func fetchParkingLotData() {
+        parkingLotManager.receiveData { result in
+            switch result {
+            case .success(let data):
+                self.parkingLotData = data
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
 }
