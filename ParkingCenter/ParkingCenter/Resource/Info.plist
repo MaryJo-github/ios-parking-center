@@ -4,6 +4,19 @@
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>사용자의 위치를 기반으로 주차장 정보를 제공하기 위해 권한이 필요합니다.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>openapi.seoul.go.kr</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	<key>ParkingAPIKey</key>
+	<string>$(PARKING_API_KEY)</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
