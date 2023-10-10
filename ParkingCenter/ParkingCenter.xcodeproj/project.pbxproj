@@ -14,6 +14,12 @@
 		44476C072AD3D1D8002C456B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44476C052AD3D1D8002C456B /* LaunchScreen.storyboard */; };
 		44476C152AD3E38E002C456B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C142AD3E38E002C456B /* HomeViewModel.swift */; };
 		44476C172AD40C4B002C456B /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C162AD40C4B002C456B /* UserLocation.swift */; };
+		44476C1A2AD532F8002C456B /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C192AD532F8002C456B /* NetworkingManager.swift */; };
+		44476C1D2AD537FF002C456B /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C1C2AD537FF002C456B /* URLSessionProtocol.swift */; };
+		44476C202AD538B3002C456B /* URLSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C1F2AD538B3002C456B /* URLSession+.swift */; };
+		44476C232AD5391D002C456B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C222AD5391D002C456B /* NetworkError.swift */; };
+		44476C252AD545FC002C456B /* ParkingLotDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C242AD545FC002C456B /* ParkingLotDecoder.swift */; };
+		44476C272AD576CA002C456B /* ParkingLot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C262AD576CA002C456B /* ParkingLot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,13 @@
 		44476C082AD3D1D8002C456B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44476C142AD3E38E002C456B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		44476C162AD40C4B002C456B /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
+		44476C192AD532F8002C456B /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		44476C1C2AD537FF002C456B /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		44476C1F2AD538B3002C456B /* URLSession+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+.swift"; sourceTree = "<group>"; };
+		44476C222AD5391D002C456B /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		44476C242AD545FC002C456B /* ParkingLotDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotDecoder.swift; sourceTree = "<group>"; };
+		44476C262AD576CA002C456B /* ParkingLot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLot.swift; sourceTree = "<group>"; };
+		44476C282AD58443002C456B /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +74,11 @@
 				44476C102AD3E27A002C456B /* View */,
 				44476C132AD3E369002C456B /* ViewModel */,
 				44476C182AD40C5A002C456B /* Model */,
+				44476C1E2AD538A4002C456B /* Extension */,
+				44476C212AD53910002C456B /* Error */,
 				44476C0E2AD3D9BC002C456B /* Application */,
 				44476C0F2AD3DA38002C456B /* Resource */,
-				44476C052AD3D1D8002C456B /* LaunchScreen.storyboard */,
+				44476C282AD58443002C456B /* Secrets.xcconfig */,
 			);
 			path = ParkingCenter;
 			sourceTree = "<group>";
@@ -90,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				44476BFE2AD3D1D7002C456B /* HomeViewController.swift */,
+				44476C052AD3D1D8002C456B /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -105,9 +121,37 @@
 		44476C182AD40C5A002C456B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				44476C1B2AD537EB002C456B /* Networking */,
 				44476C162AD40C4B002C456B /* UserLocation.swift */,
+				44476C242AD545FC002C456B /* ParkingLotDecoder.swift */,
+				44476C262AD576CA002C456B /* ParkingLot.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		44476C1B2AD537EB002C456B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				44476C192AD532F8002C456B /* NetworkingManager.swift */,
+				44476C1C2AD537FF002C456B /* URLSessionProtocol.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		44476C1E2AD538A4002C456B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				44476C1F2AD538B3002C456B /* URLSession+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		44476C212AD53910002C456B /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				44476C222AD5391D002C456B /* NetworkError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,10 +224,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44476C1D2AD537FF002C456B /* URLSessionProtocol.swift in Sources */,
 				44476BFF2AD3D1D7002C456B /* HomeViewController.swift in Sources */,
 				44476C172AD40C4B002C456B /* UserLocation.swift in Sources */,
 				44476BFB2AD3D1D7002C456B /* AppDelegate.swift in Sources */,
+				44476C272AD576CA002C456B /* ParkingLot.swift in Sources */,
+				44476C1A2AD532F8002C456B /* NetworkingManager.swift in Sources */,
 				44476C152AD3E38E002C456B /* HomeViewModel.swift in Sources */,
+				44476C232AD5391D002C456B /* NetworkError.swift in Sources */,
+				44476C202AD538B3002C456B /* URLSession+.swift in Sources */,
+				44476C252AD545FC002C456B /* ParkingLotDecoder.swift in Sources */,
 				44476BFD2AD3D1D7002C456B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +368,7 @@
 		};
 		44476C0C2AD3D1D8002C456B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44476C282AD58443002C456B /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -344,6 +395,7 @@
 		};
 		44476C0D2AD3D1D8002C456B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44476C282AD58443002C456B /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
