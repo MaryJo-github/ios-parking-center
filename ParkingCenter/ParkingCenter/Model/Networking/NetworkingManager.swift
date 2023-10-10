@@ -8,7 +8,6 @@
 import Foundation
 
 final class NetworkingManager {
-    
     typealias NetworkResult = (Result<Data, NetworkError>) -> Void
     
     private let session: URLSessionProtocol
@@ -18,7 +17,6 @@ final class NetworkingManager {
     }
     
     func fetchData(url: URL, completion: @escaping NetworkResult) {
-
         let task: URLSessionDataTask = session.dataTask(with: url) { data, response, error in
             if let _ = error {
                 completion(.failure(.requestFail))

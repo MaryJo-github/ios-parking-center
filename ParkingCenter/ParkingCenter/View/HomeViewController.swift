@@ -9,7 +9,6 @@ import UIKit
 import MapKit
 
 final class HomeViewController: UIViewController {
-    
     private var viewModel: HomeViewModel
     private var mapView: MKMapView = {
         let map = MKMapView()
@@ -104,7 +103,6 @@ final class HomeViewController: UIViewController {
 }
 
 extension HomeViewController {
-    
     func showRequestLocationServiceAlert() {
         let requestLocationServiceAlert = UIAlertController(
             title: "위치 정보 이용",
@@ -159,7 +157,6 @@ extension HomeViewController {
 }
 
 extension HomeViewController: CLLocationManagerDelegate {
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
             moveLocation(latitudeValue: coordinate.latitude, longtudeValue: coordinate.longitude, delta: 0.01)

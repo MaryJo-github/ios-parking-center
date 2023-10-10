@@ -8,7 +8,6 @@
 import CoreLocation
 
 final class HomeViewModel {
-    
     let userLocation = UserLocation()
     
     func shouldChangeSettings() -> Bool {

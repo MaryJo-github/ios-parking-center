@@ -18,7 +18,6 @@
 		44476C1D2AD537FF002C456B /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C1C2AD537FF002C456B /* URLSessionProtocol.swift */; };
 		44476C202AD538B3002C456B /* URLSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C1F2AD538B3002C456B /* URLSession+.swift */; };
 		44476C232AD5391D002C456B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C222AD5391D002C456B /* NetworkError.swift */; };
-		44476C252AD545FC002C456B /* ParkingLotDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C242AD545FC002C456B /* ParkingLotDecoder.swift */; };
 		44476C272AD576CA002C456B /* ParkingLot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C262AD576CA002C456B /* ParkingLot.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +35,6 @@
 		44476C1C2AD537FF002C456B /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		44476C1F2AD538B3002C456B /* URLSession+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+.swift"; sourceTree = "<group>"; };
 		44476C222AD5391D002C456B /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		44476C242AD545FC002C456B /* ParkingLotDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotDecoder.swift; sourceTree = "<group>"; };
 		44476C262AD576CA002C456B /* ParkingLot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLot.swift; sourceTree = "<group>"; };
 		44476C282AD58443002C456B /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,7 +121,6 @@
 			children = (
 				44476C1B2AD537EB002C456B /* Networking */,
 				44476C162AD40C4B002C456B /* UserLocation.swift */,
-				44476C242AD545FC002C456B /* ParkingLotDecoder.swift */,
 				44476C262AD576CA002C456B /* ParkingLot.swift */,
 			);
 			path = Model;
@@ -233,7 +230,6 @@
 				44476C152AD3E38E002C456B /* HomeViewModel.swift in Sources */,
 				44476C232AD5391D002C456B /* NetworkError.swift in Sources */,
 				44476C202AD538B3002C456B /* URLSession+.swift in Sources */,
-				44476C252AD545FC002C456B /* ParkingLotDecoder.swift in Sources */,
 				44476BFD2AD3D1D7002C456B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

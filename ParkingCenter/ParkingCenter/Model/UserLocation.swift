@@ -8,7 +8,6 @@
 import CoreLocation
 
 final class UserLocation {
-    
     let locationManager = CLLocationManager()
     
     var authorizationStatus: CLAuthorizationStatus {
