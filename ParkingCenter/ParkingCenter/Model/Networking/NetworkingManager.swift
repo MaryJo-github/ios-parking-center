@@ -17,7 +17,11 @@ final class NetworkingManager {
     }
     
     func fetchData(url: URL, completion: @escaping NetworkResult) {
-        let task: URLSessionDataTask = session.dataTask(with: url) { data, response, error in
+        fetchData(urlRequest: URLRequest(url: url), completion: completion)
+    }
+    
+    func fetchData(urlRequest: URLRequest, completion: @escaping NetworkResult) {
+        let task: URLSessionDataTask  = session.dataTask(with: urlRequest) { data, response, error in
             if let _ = error {
                 completion(.failure(.requestFail))
                 return

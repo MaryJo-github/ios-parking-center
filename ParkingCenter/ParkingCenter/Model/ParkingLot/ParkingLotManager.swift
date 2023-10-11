@@ -7,11 +7,11 @@
 
 import Foundation
 
+typealias ParkingLotRequestResult = (Result<ParkingLot, Error>) -> Void
+
 final class ParkingLotManager {
-    typealias RequestResult = (Result<ParkingLot, Error>) -> Void
-    
-    func receiveData(completion: @escaping RequestResult) {
-        guard let url = makeURL() else {
+    func receiveData(district: String, completion: @escaping ParkingLotRequestResult) {
+        guard let url = makeURL(district: district) else {
             completion(.failure(URLError.makingURLFail))
             return
         }
@@ -32,7 +32,7 @@ final class ParkingLotManager {
         }
     }
     
-    private func makeURL() -> URL? {
+    private func makeURL(district: String) -> URL? {
         guard let apiKey = Bundle.main.infoDictionary?["ParkingAPIKey"] as? String else {
             return nil
         }
@@ -43,7 +43,7 @@ final class ParkingLotManager {
         urlString += "/" + URLSource.serviceName
         urlString += "/" + URLSource.startIndex
         urlString += "/" + URLSource.endIndex
-        urlString += "/" + URLSource.address
+        urlString += "/" + district
         
         guard let url = URL(string: makeStringKoreanEncoded(urlString)) else {
             return nil
@@ -59,11 +59,10 @@ final class ParkingLotManager {
 
 extension ParkingLotManager {
     enum URLSource {
+        static let baseURL = "http://openapi.seoul.go.kr:8088"
         static let fileType = "json"
         static let serviceName = "GetParkingInfo"
         static let startIndex = "1"
         static let endIndex = "5"
-        static let address = "관악구"
-        static let baseURL = "http://openapi.seoul.go.kr:8088"
     }
 }

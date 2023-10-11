@@ -50,7 +50,11 @@ final class HomeViewController: UIViewController {
     
     private func setupLocation() {
         viewModel.userLocation.locationManager.delegate = self
+        viewModel.mapViewDelegate = self
+        mapView.delegate = self
         mapView.showsUserLocation = true
+        mapView.isRotateEnabled = false
+        
         checkAuthorizationStatus()
     }
     
@@ -86,34 +90,20 @@ extension HomeViewController {
             title: "취소",
             style: .default
         )
-
+        
         requestLocationServiceAlert.addAction(goSetting)
         requestLocationServiceAlert.addAction(cancel)
-
+        
         present(requestLocationServiceAlert, animated: true)
     }
-    
-    func moveLocation(latitudeValue: CLLocationDegrees,
-                      longtudeValue: CLLocationDegrees,
-                      delta span: Double) {
-        let pLocation = CLLocationCoordinate2DMake(latitudeValue, longtudeValue)
-        let pSpanValue = MKCoordinateSpan(latitudeDelta: span, longitudeDelta: span)
-        let pRegion = MKCoordinateRegion(center: pLocation, span: pSpanValue)
-        
+}
+
+extension HomeViewController: MapViewDelegate {
+    func setRegion(pRegion: MKCoordinateRegion) {
         mapView.setRegion(pRegion, animated: true)
     }
     
-    func setAnnotation(latitudeValue: CLLocationDegrees,
-                       longitudeValue: CLLocationDegrees,
-                       delta span: Double,
-                       title strTitle: String,
-                       subtitle strSubTitle:String) {
-        let annotation = MKPointAnnotation()
-
-        annotation.coordinate = CLLocationCoordinate2DMake(latitudeValue, longitudeValue)
-        annotation.title = strTitle
-        annotation.subtitle = strSubTitle
-
+    func setAnnotation(annotation: MKPointAnnotation) {
         mapView.removeAnnotations(mapView.annotations)
         mapView.addAnnotation(annotation)
     }
@@ -122,17 +112,23 @@ extension HomeViewController {
 extension HomeViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
-            moveLocation(latitudeValue: coordinate.latitude, longtudeValue: coordinate.longitude, delta: 0.01)
+            viewModel.currentLocation = coordinate
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        let defaultLocation = CLLocationCoordinate2D(latitude: 37.5642135, longitude: 127.0016985)
 
-        moveLocation(latitudeValue: defaultLocation.latitude, longtudeValue: defaultLocation.longitude, delta: 0.01)
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkAuthorizationStatus()
+    }
+}
+
+extension HomeViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        guard viewModel.didMoveToInitialLocation == true else { return }
+        
+        viewModel.currentLocation = mapView.centerCoordinate
     }
 }

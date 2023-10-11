@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		441388C72AD6E39F006136EE /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441388C62AD6E39F006136EE /* Region.swift */; };
 		44476BFB2AD3D1D7002C456B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476BFA2AD3D1D7002C456B /* AppDelegate.swift */; };
 		44476BFD2AD3D1D7002C456B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476BFC2AD3D1D7002C456B /* SceneDelegate.swift */; };
 		44476BFF2AD3D1D7002C456B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476BFE2AD3D1D7002C456B /* HomeViewController.swift */; };
@@ -22,9 +23,12 @@
 		44476C2B2AD5A477002C456B /* ParkingLotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C2A2AD5A477002C456B /* ParkingLotManager.swift */; };
 		44476C2E2AD5A948002C456B /* DecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C2D2AD5A948002C456B /* DecodeError.swift */; };
 		44476C302AD5ACDE002C456B /* URLError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C2F2AD5ACDE002C456B /* URLError.swift */; };
+		44476C362AD67B59002C456B /* RegionMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C352AD67B59002C456B /* RegionMananger.swift */; };
+		44476C382AD68C32002C456B /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C372AD68C32002C456B /* ServiceError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		441388C62AD6E39F006136EE /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		44476BF72AD3D1D7002C456B /* ParkingCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkingCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44476BFA2AD3D1D7002C456B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44476BFC2AD3D1D7002C456B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +47,8 @@
 		44476C2A2AD5A477002C456B /* ParkingLotManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotManager.swift; sourceTree = "<group>"; };
 		44476C2D2AD5A948002C456B /* DecodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeError.swift; sourceTree = "<group>"; };
 		44476C2F2AD5ACDE002C456B /* URLError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLError.swift; sourceTree = "<group>"; };
+		44476C352AD67B59002C456B /* RegionMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionMananger.swift; sourceTree = "<group>"; };
+		44476C372AD68C32002C456B /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,9 +131,10 @@
 		44476C182AD40C5A002C456B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				44476C342AD67AEA002C456B /* Location */,
 				44476C292AD5A45F002C456B /* ParkingLot */,
+				44476C332AD67ADB002C456B /* Region */,
 				44476C1B2AD537EB002C456B /* Networking */,
-				44476C162AD40C4B002C456B /* UserLocation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,6 +162,7 @@
 				44476C222AD5391D002C456B /* NetworkError.swift */,
 				44476C2D2AD5A948002C456B /* DecodeError.swift */,
 				44476C2F2AD5ACDE002C456B /* URLError.swift */,
+				44476C372AD68C32002C456B /* ServiceError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -166,6 +174,23 @@
 				44476C2A2AD5A477002C456B /* ParkingLotManager.swift */,
 			);
 			path = ParkingLot;
+			sourceTree = "<group>";
+		};
+		44476C332AD67ADB002C456B /* Region */ = {
+			isa = PBXGroup;
+			children = (
+				441388C62AD6E39F006136EE /* Region.swift */,
+				44476C352AD67B59002C456B /* RegionMananger.swift */,
+			);
+			path = Region;
+			sourceTree = "<group>";
+		};
+		44476C342AD67AEA002C456B /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				44476C162AD40C4B002C456B /* UserLocation.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,13 +265,16 @@
 			files = (
 				44476C1D2AD537FF002C456B /* URLSessionProtocol.swift in Sources */,
 				44476BFF2AD3D1D7002C456B /* HomeViewController.swift in Sources */,
+				44476C362AD67B59002C456B /* RegionMananger.swift in Sources */,
 				44476C172AD40C4B002C456B /* UserLocation.swift in Sources */,
 				44476BFB2AD3D1D7002C456B /* AppDelegate.swift in Sources */,
 				44476C272AD576CA002C456B /* ParkingLot.swift in Sources */,
 				44476C1A2AD532F8002C456B /* NetworkingManager.swift in Sources */,
+				44476C382AD68C32002C456B /* ServiceError.swift in Sources */,
 				44476C2E2AD5A948002C456B /* DecodeError.swift in Sources */,
 				44476C152AD3E38E002C456B /* HomeViewModel.swift in Sources */,
 				44476C232AD5391D002C456B /* NetworkError.swift in Sources */,
+				441388C72AD6E39F006136EE /* Region.swift in Sources */,
 				44476C202AD538B3002C456B /* URLSession+.swift in Sources */,
 				44476BFD2AD3D1D7002C456B /* SceneDelegate.swift in Sources */,
 				44476C2B2AD5A477002C456B /* ParkingLotManager.swift in Sources */,
