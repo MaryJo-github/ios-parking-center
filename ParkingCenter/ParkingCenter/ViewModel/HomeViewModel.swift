@@ -8,35 +8,17 @@
 import CoreLocation
 import MapKit
 
-protocol MapViewDelegate {
-    func setRegion(pRegion: MKCoordinateRegion)
-    func setAnnotation(annotation: MKPointAnnotation)
-}
-
-extension CLLocationCoordinate2D: Hashable {
-    public static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
-    }
-    
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(latitude)
-        hasher.combine(longitude)
-    }
-}
-
 final class HomeViewModel {
     let userLocation = UserLocation()
     let parkingLotManager = ParkingLotManager()
     let coordToRegionManager = RegionMananger()
-    var parkingLotData: ParkingLot?
     var didMoveToInitialLocation: Bool = false
     var mapViewDelegate: MapViewDelegate?
+    
     var currentDistrict: String = "Default" {
         didSet {
-            // 주차장 정보 불러오기 + 핀찍기
             fetchParkingLotData()
             print(currentDistrict)
-            
         }
     }
     
@@ -47,6 +29,12 @@ final class HomeViewModel {
             
             moveLocation(delta: 0.01)
             checkNeedToLoadParkingInfo()
+        }
+    }
+    
+    var parkingLotData: ParkingLot? {
+        didSet {
+            setAnnotations()
         }
     }
     
@@ -112,14 +100,24 @@ final class HomeViewModel {
         }
     }
     
-    func setAnnotation(latitudeValue: CLLocationDegrees,
-                       longitudeValue: CLLocationDegrees,
-                       delta span: Double,
+    func setAnnotations() {
+        let informations = parkingLotData?.getParkingInfo.information
+        
+        informations?.forEach { information in
+            let coordinate = CLLocationCoordinate2D(latitude: information.latitude,
+                                                    longitude: information.longitude)
+            setAnnotation(coordinate: coordinate,
+                          title: information.name,
+                          subtitle: information.typeName)
+        }
+    }
+    
+    func setAnnotation(coordinate: CLLocationCoordinate2D,
                        title strTitle: String,
                        subtitle strSubTitle:String) {
         let annotation = MKPointAnnotation()
 
-        annotation.coordinate = CLLocationCoordinate2DMake(latitudeValue, longitudeValue)
+        annotation.coordinate = coordinate
         annotation.title = strTitle
         annotation.subtitle = strSubTitle
 

@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  MapViewController.swift
 //  ParkingCenter
 //
 //  Created by MARY on 2023/10/09.
@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-final class HomeViewController: UIViewController {
+final class MapViewController: UIViewController {
     private var viewModel: HomeViewModel
     private var mapView: MKMapView = {
         let map = MKMapView()
@@ -69,7 +69,7 @@ final class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController {
+extension MapViewController {
     func showRequestLocationServiceAlert() {
         let requestLocationServiceAlert = UIAlertController(
             title: "위치 정보 이용",
@@ -98,18 +98,21 @@ extension HomeViewController {
     }
 }
 
-extension HomeViewController: MapViewDelegate {
+extension MapViewController: MapViewDelegate {
     func setRegion(pRegion: MKCoordinateRegion) {
         mapView.setRegion(pRegion, animated: true)
     }
     
-    func setAnnotation(annotation: MKPointAnnotation) {
+    func removeAnnotations() {
         mapView.removeAnnotations(mapView.annotations)
+    }
+    
+    func setAnnotation(annotation: MKPointAnnotation) {
         mapView.addAnnotation(annotation)
     }
 }
 
-extension HomeViewController: CLLocationManagerDelegate {
+extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
             viewModel.currentLocation = coordinate
@@ -125,7 +128,7 @@ extension HomeViewController: CLLocationManagerDelegate {
     }
 }
 
-extension HomeViewController: MKMapViewDelegate {
+extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         guard viewModel.didMoveToInitialLocation == true else { return }
         

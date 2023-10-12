@@ -35,7 +35,7 @@ struct GetResult: Decodable {
     }
 }
 
-struct ParkingInformation: Decodable {
+struct ParkingInformation: Decodable, Hashable {
     let name: String
     let address: String
     let type: String
