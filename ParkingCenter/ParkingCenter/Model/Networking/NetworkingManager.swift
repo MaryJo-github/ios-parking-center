@@ -42,6 +42,19 @@ final class NetworkingManager {
                 return
             }
             
+            if caching {
+                let cachedResponse = CachedURLResponse(
+                    response: httpResponse,
+                    data: data,
+                    storagePolicy: .allowedInMemoryOnly
+                )
+                
+                URLCache.shared.storeCachedResponse(
+                    cachedResponse,
+                    for: urlRequest
+                )
+            }
+            
             completion(.success(data))
         }
         

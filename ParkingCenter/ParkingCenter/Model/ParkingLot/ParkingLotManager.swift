@@ -16,7 +16,20 @@ final class ParkingLotManager {
             return
         }
         
-        NetworkingManager().fetchData(url: url) { result in
+        let urlRequest = URLRequest(url: url)
+        
+        if let cachedData = URLCache.shared.cachedResponse(for: urlRequest)?.data {
+            print("캐시된 데이터가 있습니다.")
+            do {
+                let decodedData = try JSONDecoder().decode(ParkingLot.self, from: cachedData)
+                completion(.success(decodedData))
+            } catch {
+                completion(.failure(DecodeError.decodingFail))
+            }
+            return
+        }
+        
+        NetworkingManager().fetchData(urlRequest: urlRequest, caching: true) { result in
             switch result {
             case .success(let data):
                 do {
