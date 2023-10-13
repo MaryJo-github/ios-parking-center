@@ -16,11 +16,11 @@ final class NetworkingManager {
         self.session = session
     }
     
-    func fetchData(url: URL, completion: @escaping NetworkResult) {
-        fetchData(urlRequest: URLRequest(url: url), completion: completion)
+    func fetchData(url: URL, caching: Bool = false, completion: @escaping NetworkResult) {
+        fetchData(urlRequest: URLRequest(url: url), caching: caching, completion: completion)
     }
     
-    func fetchData(urlRequest: URLRequest, completion: @escaping NetworkResult) {
+    func fetchData(urlRequest: URLRequest, caching: Bool = false, completion: @escaping NetworkResult) {
         let task: URLSessionDataTask  = session.dataTask(with: urlRequest) { data, response, error in
             if let _ = error {
                 completion(.failure(.requestFail))

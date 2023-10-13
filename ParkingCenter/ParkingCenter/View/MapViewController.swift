@@ -81,6 +81,17 @@ final class MapViewController: UIViewController {
         
         viewModel.checkAuthorizationStatus()
     }
+    
+    @objc private func tappedListButton() {
+        let listViewController = ListViewController(
+            viewModel: ListViewModel(
+                parkingLotManager: viewModel.parkingLotManager,
+                district: viewModel.regionManager.district ?? "강남구"
+            )
+        )
+        
+        show(listViewController, sender: self)
+    }
 }
 
 extension MapViewController {

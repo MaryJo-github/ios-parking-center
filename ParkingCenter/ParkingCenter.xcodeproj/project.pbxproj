@@ -10,6 +10,14 @@
 		441388C72AD6E39F006136EE /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441388C62AD6E39F006136EE /* Region.swift */; };
 		441388C92AD6F3F5006136EE /* CLLocationCoordinate2D+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441388C82AD6F3F5006136EE /* CLLocationCoordinate2D+.swift */; };
 		441388CB2AD6F434006136EE /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441388CA2AD6F434006136EE /* MapViewDelegate.swift */; };
+		4413890D2AD81BF7006136EE /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4413890C2AD81BF7006136EE /* ListViewController.swift */; };
+		4413890F2AD81CE4006136EE /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4413890E2AD81CE4006136EE /* ListViewModel.swift */; };
+		441389142AD8DC23006136EE /* ListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441389132AD8DC23006136EE /* ListButton.swift */; };
+		4413891B2AD9327D006136EE /* ParkingLotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4413891A2AD9327D006136EE /* ParkingLotTableViewCell.swift */; };
+		4413891D2AD932DA006136EE /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4413891C2AD932DA006136EE /* UITableViewCell+.swift */; };
+		4413891F2AD9333C006136EE /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4413891E2AD9333C006136EE /* ReuseIdentifiable.swift */; };
+		441389212AD94475006136EE /* ListViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441389202AD94475006136EE /* ListViewDelegate.swift */; };
+		441389232AD97578006136EE /* Districts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441389222AD97578006136EE /* Districts.swift */; };
 		44476BFB2AD3D1D7002C456B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476BFA2AD3D1D7002C456B /* AppDelegate.swift */; };
 		44476BFD2AD3D1D7002C456B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476BFC2AD3D1D7002C456B /* SceneDelegate.swift */; };
 		44476BFF2AD3D1D7002C456B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476BFE2AD3D1D7002C456B /* MapViewController.swift */; };
@@ -33,6 +41,14 @@
 		441388C62AD6E39F006136EE /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		441388C82AD6F3F5006136EE /* CLLocationCoordinate2D+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+.swift"; sourceTree = "<group>"; };
 		441388CA2AD6F434006136EE /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
+		4413890C2AD81BF7006136EE /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		4413890E2AD81CE4006136EE /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		441389132AD8DC23006136EE /* ListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListButton.swift; sourceTree = "<group>"; };
+		4413891A2AD9327D006136EE /* ParkingLotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotTableViewCell.swift; sourceTree = "<group>"; };
+		4413891C2AD932DA006136EE /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
+		4413891E2AD9333C006136EE /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
+		441389202AD94475006136EE /* ListViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewDelegate.swift; sourceTree = "<group>"; };
+		441389222AD97578006136EE /* Districts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Districts.swift; sourceTree = "<group>"; };
 		44476BF72AD3D1D7002C456B /* ParkingCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkingCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44476BFA2AD3D1D7002C456B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44476BFC2AD3D1D7002C456B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +82,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		441389122AD8DBFF006136EE /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				441389132AD8DC23006136EE /* ListButton.swift */,
+				4413891E2AD9333C006136EE /* ReuseIdentifiable.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		441389152AD90AB4006136EE /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				441388CA2AD6F434006136EE /* MapViewDelegate.swift */,
+				441389202AD94475006136EE /* ListViewDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 		44476BEE2AD3D1D7002C456B = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +122,7 @@
 				44476C102AD3E27A002C456B /* View */,
 				44476C132AD3E369002C456B /* ViewModel */,
 				44476C182AD40C5A002C456B /* Model */,
+				441389122AD8DBFF006136EE /* Helper */,
 				44476C1E2AD538A4002C456B /* Extension */,
 				44476C212AD53910002C456B /* Error */,
 				44476C0E2AD3D9BC002C456B /* Application */,
@@ -118,8 +153,10 @@
 		44476C102AD3E27A002C456B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				44476BFE2AD3D1D7002C456B /* MapViewController.swift */,
 				44476C052AD3D1D8002C456B /* LaunchScreen.storyboard */,
+				44476BFE2AD3D1D7002C456B /* MapViewController.swift */,
+				4413890C2AD81BF7006136EE /* ListViewController.swift */,
+				4413891A2AD9327D006136EE /* ParkingLotTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -127,7 +164,8 @@
 		44476C132AD3E369002C456B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				44476C142AD3E38E002C456B /* HomeViewModel.swift */,
+				44476C142AD3E38E002C456B /* MapViewModel.swift */,
+				4413890E2AD81CE4006136EE /* ListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -139,7 +177,8 @@
 				44476C292AD5A45F002C456B /* ParkingLot */,
 				44476C332AD67ADB002C456B /* Region */,
 				44476C1B2AD537EB002C456B /* Networking */,
-				441388CA2AD6F434006136EE /* MapViewDelegate.swift */,
+				441389152AD90AB4006136EE /* Delegate */,
+				441389222AD97578006136EE /* Districts.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,6 +197,7 @@
 			children = (
 				44476C1F2AD538B3002C456B /* URLSession+.swift */,
 				441388C82AD6F3F5006136EE /* CLLocationCoordinate2D+.swift */,
+				4413891C2AD932DA006136EE /* UITableViewCell+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -186,7 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				441388C62AD6E39F006136EE /* Region.swift */,
-				44476C352AD67B59002C456B /* RegionMananger.swift */,
+				44476C352AD67B59002C456B /* RegionManager.swift */,
 			);
 			path = Region;
 			sourceTree = "<group>";
@@ -271,15 +311,23 @@
 			files = (
 				441388CB2AD6F434006136EE /* MapViewDelegate.swift in Sources */,
 				44476C1D2AD537FF002C456B /* URLSessionProtocol.swift in Sources */,
+				4413891B2AD9327D006136EE /* ParkingLotTableViewCell.swift in Sources */,
 				44476BFF2AD3D1D7002C456B /* MapViewController.swift in Sources */,
-				44476C362AD67B59002C456B /* RegionMananger.swift in Sources */,
+				44476C362AD67B59002C456B /* RegionManager.swift in Sources */,
 				44476C172AD40C4B002C456B /* UserLocation.swift in Sources */,
 				44476BFB2AD3D1D7002C456B /* AppDelegate.swift in Sources */,
 				44476C272AD576CA002C456B /* ParkingLot.swift in Sources */,
 				44476C1A2AD532F8002C456B /* NetworkingManager.swift in Sources */,
+				4413891D2AD932DA006136EE /* UITableViewCell+.swift in Sources */,
+				4413890D2AD81BF7006136EE /* ListViewController.swift in Sources */,
+				4413891F2AD9333C006136EE /* ReuseIdentifiable.swift in Sources */,
 				44476C382AD68C32002C456B /* ServiceError.swift in Sources */,
+				441389212AD94475006136EE /* ListViewDelegate.swift in Sources */,
+				4413890F2AD81CE4006136EE /* ListViewModel.swift in Sources */,
 				44476C2E2AD5A948002C456B /* DecodeError.swift in Sources */,
-				44476C152AD3E38E002C456B /* HomeViewModel.swift in Sources */,
+				44476C152AD3E38E002C456B /* MapViewModel.swift in Sources */,
+				441389232AD97578006136EE /* Districts.swift in Sources */,
+				441389142AD8DC23006136EE /* ListButton.swift in Sources */,
 				441388C92AD6F3F5006136EE /* CLLocationCoordinate2D+.swift in Sources */,
 				44476C232AD5391D002C456B /* NetworkError.swift in Sources */,
 				441388C72AD6E39F006136EE /* Region.swift in Sources */,

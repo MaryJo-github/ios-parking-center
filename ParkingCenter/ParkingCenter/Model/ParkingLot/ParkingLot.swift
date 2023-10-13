@@ -16,7 +16,7 @@ struct ParkingLot: Decodable {
 struct GetParkingInfo: Decodable {
     let totalCount: Int
     let result: GetResult
-    let information: [ParkingInformation]?
+    let information: [ParkingInformation]
     
     enum CodingKeys: String, CodingKey {
         case totalCount = "list_total_count"
