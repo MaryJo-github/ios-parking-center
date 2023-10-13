@@ -1,5 +1,5 @@
 //
-//  RegionMananger.swift
+//  RegionManager.swift
 //  ParkingCenter
 //
 //  Created by MARY on 2023/10/11.
@@ -10,7 +10,9 @@ import CoreLocation
 
 typealias RegionRequestResult = (Result<Region, Error>) -> Void
 
-final class RegionMananger {
+final class RegionManager {
+    private(set) var district: String?
+    
     func receiveData(coordinate: CLLocationCoordinate2D, completion: @escaping RegionRequestResult) {
         guard let urlRequest = makeURLRequest(coordinate: coordinate) else {
             completion(.failure(URLError.makingURLFail))
@@ -23,6 +25,8 @@ final class RegionMananger {
                 do {
                     let decodedData = try JSONDecoder().decode(Region.self, from: data)
 
+                    self.district = decodedData.documents.first?.district
+                    
                     completion(.success(decodedData))
                 } catch {
                     completion(.failure(DecodeError.decodingFail))
@@ -51,7 +55,7 @@ final class RegionMananger {
     }
 }
 
-extension RegionMananger {
+extension RegionManager {
     enum URLSource {
         static let baseURL = "https://dapi.kakao.com/v2/local/geo/coord2regioncode"
     }

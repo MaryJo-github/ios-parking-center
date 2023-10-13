@@ -8,20 +8,13 @@
 import CoreLocation
 import MapKit
 
-final class HomeViewModel {
+final class MapViewModel {
     let userLocation = UserLocation()
     let parkingLotManager = ParkingLotManager()
-    let coordToRegionManager = RegionMananger()
+    let regionManager = RegionManager()
     var didMoveToInitialLocation: Bool = false
     var mapViewDelegate: MapViewDelegate?
-    
-    var currentDistrict: String = "Default" {
-        didSet {
-            fetchParkingLotData()
-            print(currentDistrict)
-        }
-    }
-    
+
     var currentLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 37.5642135, longitude: 127.0016985) {
         didSet {
             if currentLocation == oldValue { return }
@@ -29,12 +22,6 @@ final class HomeViewModel {
             
             moveLocation(delta: 0.01)
             checkNeedToLoadParkingInfo()
-        }
-    }
-    
-    var parkingLotData: ParkingLot? {
-        didSet {
-            setAnnotations()
         }
     }
     
@@ -58,11 +45,11 @@ final class HomeViewModel {
         }
     }
     
-    private func fetchParkingLotData() {
-        parkingLotManager.receiveData(district: currentDistrict) { [weak self] result in
+    private func fetchParkingLotData(district: String) {
+        parkingLotManager.receiveData(district: district) { [weak self] result in
             switch result {
             case .success(let data):
-                self?.parkingLotData = data
+                self?.setAnnotations(informations: data.getParkingInfo.information)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -70,19 +57,16 @@ final class HomeViewModel {
     }
     
     func checkNeedToLoadParkingInfo() {
-        coordToRegionManager.receiveData(coordinate: currentLocation) { [weak self] result in
+        regionManager.receiveData(coordinate: currentLocation) { [weak self] result in
             switch result {
             case .success(let data):
-                guard data.documents.first?.city == "서울특별시" else {
+                guard data.documents.first?.city == "서울특별시",
+                      let district = data.documents.first?.district else {
                     return
                 }
                 
-                guard let district = data.documents.first?.district,
-                      self?.currentDistrict != district else {
-                    return
-                }
-                
-                self?.currentDistrict = district
+                self?.fetchParkingLotData(district: district)
+                print(district)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -100,9 +84,7 @@ final class HomeViewModel {
         }
     }
     
-    func setAnnotations() {
-        let informations = parkingLotData?.getParkingInfo.information
-        
+    func setAnnotations(informations: [ParkingInformation]?) {
         informations?.forEach { information in
             let coordinate = CLLocationCoordinate2D(latitude: information.latitude,
                                                     longitude: information.longitude)

@@ -15,7 +15,7 @@
 		44476BFF2AD3D1D7002C456B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476BFE2AD3D1D7002C456B /* MapViewController.swift */; };
 		44476C042AD3D1D8002C456B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44476C032AD3D1D8002C456B /* Assets.xcassets */; };
 		44476C072AD3D1D8002C456B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44476C052AD3D1D8002C456B /* LaunchScreen.storyboard */; };
-		44476C152AD3E38E002C456B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C142AD3E38E002C456B /* HomeViewModel.swift */; };
+		44476C152AD3E38E002C456B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C142AD3E38E002C456B /* MapViewModel.swift */; };
 		44476C172AD40C4B002C456B /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C162AD40C4B002C456B /* UserLocation.swift */; };
 		44476C1A2AD532F8002C456B /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C192AD532F8002C456B /* NetworkingManager.swift */; };
 		44476C1D2AD537FF002C456B /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C1C2AD537FF002C456B /* URLSessionProtocol.swift */; };
@@ -25,7 +25,7 @@
 		44476C2B2AD5A477002C456B /* ParkingLotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C2A2AD5A477002C456B /* ParkingLotManager.swift */; };
 		44476C2E2AD5A948002C456B /* DecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C2D2AD5A948002C456B /* DecodeError.swift */; };
 		44476C302AD5ACDE002C456B /* URLError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C2F2AD5ACDE002C456B /* URLError.swift */; };
-		44476C362AD67B59002C456B /* RegionMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C352AD67B59002C456B /* RegionMananger.swift */; };
+		44476C362AD67B59002C456B /* RegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C352AD67B59002C456B /* RegionManager.swift */; };
 		44476C382AD68C32002C456B /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476C372AD68C32002C456B /* ServiceError.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +40,7 @@
 		44476C032AD3D1D8002C456B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44476C062AD3D1D8002C456B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44476C082AD3D1D8002C456B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		44476C142AD3E38E002C456B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		44476C142AD3E38E002C456B /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		44476C162AD40C4B002C456B /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		44476C192AD532F8002C456B /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		44476C1C2AD537FF002C456B /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 		44476C2A2AD5A477002C456B /* ParkingLotManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotManager.swift; sourceTree = "<group>"; };
 		44476C2D2AD5A948002C456B /* DecodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeError.swift; sourceTree = "<group>"; };
 		44476C2F2AD5ACDE002C456B /* URLError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLError.swift; sourceTree = "<group>"; };
-		44476C352AD67B59002C456B /* RegionMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionMananger.swift; sourceTree = "<group>"; };
+		44476C352AD67B59002C456B /* RegionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionManager.swift; sourceTree = "<group>"; };
 		44476C372AD68C32002C456B /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
