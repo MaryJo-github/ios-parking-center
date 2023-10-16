@@ -18,6 +18,13 @@
 		4413891F2AD9333C006136EE /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4413891E2AD9333C006136EE /* ReuseIdentifiable.swift */; };
 		441389212AD94475006136EE /* ListViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441389202AD94475006136EE /* ListViewDelegate.swift */; };
 		441389232AD97578006136EE /* Districts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441389222AD97578006136EE /* Districts.swift */; };
+		441389272AD993C9006136EE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441389262AD993C9006136EE /* DetailViewController.swift */; };
+		4413892C2AD998F5006136EE /* MainInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4413892B2AD998F5006136EE /* MainInformationView.swift */; };
+		4413892E2AD9991C006136EE /* ChargeInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4413892D2AD9991C006136EE /* ChargeInformationView.swift */; };
+		441389302AD99991006136EE /* OperationsInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4413892F2AD99991006136EE /* OperationsInformationView.swift */; };
+		441389322AD99B7C006136EE /* LastModifiedDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441389312AD99B7C006136EE /* LastModifiedDateView.swift */; };
+		441389352AD9A1D1006136EE /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441389342AD9A1D1006136EE /* DetailViewModel.swift */; };
+		441389372ADD5A71006136EE /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441389362ADD5A71006136EE /* CALayer+.swift */; };
 		44476BFB2AD3D1D7002C456B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476BFA2AD3D1D7002C456B /* AppDelegate.swift */; };
 		44476BFD2AD3D1D7002C456B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476BFC2AD3D1D7002C456B /* SceneDelegate.swift */; };
 		44476BFF2AD3D1D7002C456B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476BFE2AD3D1D7002C456B /* MapViewController.swift */; };
@@ -49,6 +56,13 @@
 		4413891E2AD9333C006136EE /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
 		441389202AD94475006136EE /* ListViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewDelegate.swift; sourceTree = "<group>"; };
 		441389222AD97578006136EE /* Districts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Districts.swift; sourceTree = "<group>"; };
+		441389262AD993C9006136EE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		4413892B2AD998F5006136EE /* MainInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInformationView.swift; sourceTree = "<group>"; };
+		4413892D2AD9991C006136EE /* ChargeInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeInformationView.swift; sourceTree = "<group>"; };
+		4413892F2AD99991006136EE /* OperationsInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsInformationView.swift; sourceTree = "<group>"; };
+		441389312AD99B7C006136EE /* LastModifiedDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastModifiedDateView.swift; sourceTree = "<group>"; };
+		441389342AD9A1D1006136EE /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		441389362ADD5A71006136EE /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		44476BF72AD3D1D7002C456B /* ParkingCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkingCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44476BFA2AD3D1D7002C456B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44476BFC2AD3D1D7002C456B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +112,43 @@
 				441389202AD94475006136EE /* ListViewDelegate.swift */,
 			);
 			path = Delegate;
+			sourceTree = "<group>";
+		};
+		441389282AD99888006136EE /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				441389262AD993C9006136EE /* DetailViewController.swift */,
+				441389332AD99B9B006136EE /* Components */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
+		441389292AD998AC006136EE /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				44476BFE2AD3D1D7002C456B /* MapViewController.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		4413892A2AD998B6006136EE /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				4413890C2AD81BF7006136EE /* ListViewController.swift */,
+				4413891A2AD9327D006136EE /* ParkingLotTableViewCell.swift */,
+			);
+			path = ListView;
+			sourceTree = "<group>";
+		};
+		441389332AD99B9B006136EE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4413892B2AD998F5006136EE /* MainInformationView.swift */,
+				4413892D2AD9991C006136EE /* ChargeInformationView.swift */,
+				4413892F2AD99991006136EE /* OperationsInformationView.swift */,
+				441389312AD99B7C006136EE /* LastModifiedDateView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		44476BEE2AD3D1D7002C456B = {
@@ -154,9 +205,9 @@
 			isa = PBXGroup;
 			children = (
 				44476C052AD3D1D8002C456B /* LaunchScreen.storyboard */,
-				44476BFE2AD3D1D7002C456B /* MapViewController.swift */,
-				4413890C2AD81BF7006136EE /* ListViewController.swift */,
-				4413891A2AD9327D006136EE /* ParkingLotTableViewCell.swift */,
+				441389292AD998AC006136EE /* MapView */,
+				4413892A2AD998B6006136EE /* ListView */,
+				441389282AD99888006136EE /* DetailView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -166,6 +217,7 @@
 			children = (
 				44476C142AD3E38E002C456B /* MapViewModel.swift */,
 				4413890E2AD81CE4006136EE /* ListViewModel.swift */,
+				441389342AD9A1D1006136EE /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -198,6 +250,7 @@
 				44476C1F2AD538B3002C456B /* URLSession+.swift */,
 				441388C82AD6F3F5006136EE /* CLLocationCoordinate2D+.swift */,
 				4413891C2AD932DA006136EE /* UITableViewCell+.swift */,
+				441389362ADD5A71006136EE /* CALayer+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -313,23 +366,30 @@
 				44476C1D2AD537FF002C456B /* URLSessionProtocol.swift in Sources */,
 				4413891B2AD9327D006136EE /* ParkingLotTableViewCell.swift in Sources */,
 				44476BFF2AD3D1D7002C456B /* MapViewController.swift in Sources */,
+				441389322AD99B7C006136EE /* LastModifiedDateView.swift in Sources */,
 				44476C362AD67B59002C456B /* RegionManager.swift in Sources */,
 				44476C172AD40C4B002C456B /* UserLocation.swift in Sources */,
 				44476BFB2AD3D1D7002C456B /* AppDelegate.swift in Sources */,
 				44476C272AD576CA002C456B /* ParkingLot.swift in Sources */,
 				44476C1A2AD532F8002C456B /* NetworkingManager.swift in Sources */,
+				441389372ADD5A71006136EE /* CALayer+.swift in Sources */,
+				441389272AD993C9006136EE /* DetailViewController.swift in Sources */,
 				4413891D2AD932DA006136EE /* UITableViewCell+.swift in Sources */,
 				4413890D2AD81BF7006136EE /* ListViewController.swift in Sources */,
 				4413891F2AD9333C006136EE /* ReuseIdentifiable.swift in Sources */,
 				44476C382AD68C32002C456B /* ServiceError.swift in Sources */,
+				441389352AD9A1D1006136EE /* DetailViewModel.swift in Sources */,
 				441389212AD94475006136EE /* ListViewDelegate.swift in Sources */,
 				4413890F2AD81CE4006136EE /* ListViewModel.swift in Sources */,
 				44476C2E2AD5A948002C456B /* DecodeError.swift in Sources */,
 				44476C152AD3E38E002C456B /* MapViewModel.swift in Sources */,
 				441389232AD97578006136EE /* Districts.swift in Sources */,
 				441389142AD8DC23006136EE /* ListButton.swift in Sources */,
+				4413892E2AD9991C006136EE /* ChargeInformationView.swift in Sources */,
+				441389302AD99991006136EE /* OperationsInformationView.swift in Sources */,
 				441388C92AD6F3F5006136EE /* CLLocationCoordinate2D+.swift in Sources */,
 				44476C232AD5391D002C456B /* NetworkError.swift in Sources */,
+				4413892C2AD998F5006136EE /* MainInformationView.swift in Sources */,
 				441388C72AD6E39F006136EE /* Region.swift in Sources */,
 				44476C202AD538B3002C456B /* URLSession+.swift in Sources */,
 				44476BFD2AD3D1D7002C456B /* SceneDelegate.swift in Sources */,

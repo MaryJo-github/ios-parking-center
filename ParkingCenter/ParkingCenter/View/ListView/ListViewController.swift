@@ -54,6 +54,8 @@ final class ListViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubview(districtShowPicker)
         view.addSubview(parkingLotTableView)
+        title = "주차장 목록"
+        navigationItem.backButtonTitle = ""
         
         viewModel.listViewDelegate = self
     }
@@ -62,7 +64,7 @@ final class ListViewController: UIViewController {
         pickerView.dataSource = self
         pickerView.delegate = self
         districtShowPicker.inputView = pickerView
-        districtShowPicker.text = viewModel.district
+        districtShowPicker.text = viewModel.district + " ▼"
         
         if let district = Districts(rawValue: viewModel.district),
            let defaultRow = Districts.allCases.firstIndex(of: district) {
@@ -74,6 +76,7 @@ final class ListViewController: UIViewController {
     
     private func configureTableView() {
         parkingLotTableView.dataSource = self
+        parkingLotTableView.delegate = self
         parkingLotTableView.register(ParkingLotTableViewCell.self, forCellReuseIdentifier: ParkingLotTableViewCell.reuseIdentifier)
         viewModel.district = viewModel.district
     }
@@ -131,7 +134,7 @@ final class ListViewController: UIViewController {
     @objc private func donePicker() {
         let row = pickerView.selectedRow(inComponent: 0)
         pickerView.selectRow(row, inComponent: 0, animated: false)
-        districtShowPicker.text = Districts.allCases[row].rawValue
+        districtShowPicker.text = Districts.allCases[row].rawValue + " ▼"
         districtShowPicker.resignFirstResponder()
         viewModel.district = Districts.allCases[row].rawValue
     }
@@ -139,6 +142,12 @@ final class ListViewController: UIViewController {
     @objc private func cancelPicker() {
         districtShowPicker.text = nil
         districtShowPicker.resignFirstResponder()
+    }
+    
+    private func showDetailViewController(parkingInformations: [ParkingInformation]) {
+        let detailViewController = DetailViewController(viewModel: DetailViewModel(parkingInformations: parkingInformations))
+        
+        show(detailViewController, sender: self)
     }
 }
 
@@ -166,7 +175,7 @@ extension ListViewController: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        districtShowPicker.text = Districts.allCases[row].rawValue
+        districtShowPicker.text = Districts.allCases[row].rawValue + " ▼"
     }
 }
 
@@ -192,5 +201,15 @@ extension ListViewController: UITableViewDataSource {
         cell.configureCell(name: datas[index].key, data: datas[index].value)
         
         return cell
+    }
+}
+
+extension ListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let datas = viewModel.groupedData else { return }
+        let index = datas.index(datas.startIndex, offsetBy: indexPath.row)
+        
+        showDetailViewController(parkingInformations: datas[index].value)
     }
 }

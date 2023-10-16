@@ -46,6 +46,7 @@ final class MapViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubview(mapView)
         view.addSubview(listButton)
+        navigationItem.backButtonTitle = ""
         
         listButton.addTarget(self, action: #selector(tappedListButton), for: .touchUpInside)
     }
@@ -57,8 +58,8 @@ final class MapViewController: UIViewController {
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            listButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            listButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            listButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            listButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -12),
         ])
     }
     
