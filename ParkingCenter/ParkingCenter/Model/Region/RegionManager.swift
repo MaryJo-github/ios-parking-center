@@ -11,21 +11,17 @@ import CoreLocation
 typealias RegionRequestResult = (Result<Region, Error>) -> Void
 
 final class RegionManager {
-    private(set) var district: String?
-    
     func receiveData(coordinate: CLLocationCoordinate2D, completion: @escaping RegionRequestResult) {
         guard let urlRequest = makeURLRequest(coordinate: coordinate) else {
             completion(.failure(URLError.makingURLFail))
             return
         }
         
-        NetworkingManager().fetchData(urlRequest: urlRequest) { [weak self] result in
+        NetworkingManager().fetchData(urlRequest: urlRequest) { result in
             switch result {
             case .success(let data):
                 do {
                     let decodedData = try JSONDecoder().decode(Region.self, from: data)
-
-                    self?.district = decodedData.documents.first?.district
                     
                     completion(.success(decodedData))
                 } catch {

@@ -14,6 +14,7 @@ final class MapViewModel {
     let regionManager = RegionManager()
     var didMoveToInitialLocation: Bool = false
     var mapViewDelegate: MapViewDelegate?
+    var currentDistrict: String?
 
     var currentLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 37.5642135, longitude: 127.0016985) {
         didSet {
@@ -64,6 +65,11 @@ final class MapViewModel {
                     return
                 }
                 
+                guard self?.currentDistrict != district else {
+                    return
+                }
+                
+                self?.currentDistrict = district
                 self?.fetchParkingLotData(district: district)
             case .failure(let error):
                 print(error.localizedDescription)

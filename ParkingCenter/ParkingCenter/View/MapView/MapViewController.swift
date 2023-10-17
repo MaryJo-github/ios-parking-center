@@ -89,7 +89,7 @@ final class MapViewController: UIViewController {
         let listViewController = ListViewController(
             viewModel: ListViewModel(
                 parkingLotManager: viewModel.parkingLotManager,
-                district: viewModel.regionManager.district ?? "강남구"
+                district: viewModel.currentDistrict ?? "강남구"
             )
         )
         

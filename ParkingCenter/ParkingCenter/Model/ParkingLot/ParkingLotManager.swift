@@ -82,6 +82,6 @@ extension ParkingLotManager {
         static let fileType = "json"
         static let serviceName = "GetParkingInfo"
         static let startIndex = "1"
-        static let endIndex = "100"
+        static let endIndex = "1000"
     }
 }
