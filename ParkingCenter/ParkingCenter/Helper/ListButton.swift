@@ -27,7 +27,7 @@ final class ListButton: UIButton {
         config.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 30, weight: .medium, scale: .small)
         config.imagePadding = 8
         config.cornerStyle = .capsule
-        config.baseBackgroundColor = .systemOrange
+        config.baseBackgroundColor = .systemBlue
         
         configuration = config
     }

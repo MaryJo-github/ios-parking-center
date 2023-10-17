@@ -19,13 +19,13 @@ final class RegionManager {
             return
         }
         
-        NetworkingManager().fetchData(urlRequest: urlRequest) { result in
+        NetworkingManager().fetchData(urlRequest: urlRequest) { [weak self] result in
             switch result {
             case .success(let data):
                 do {
                     let decodedData = try JSONDecoder().decode(Region.self, from: data)
 
-                    self.district = decodedData.documents.first?.district
+                    self?.district = decodedData.documents.first?.district
                     
                     completion(.success(decodedData))
                 } catch {

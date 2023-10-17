@@ -10,9 +10,9 @@ import UIKit
 final class MainInformationView: UIView {
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 28)
+        label.font = .boldSystemFont(ofSize: 24)
         label.numberOfLines = 0
-        label.textColor = .systemOrange
+        label.textColor = .systemBlue
         return label
     }()
     

@@ -18,7 +18,6 @@ final class MapViewModel {
     var currentLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 37.5642135, longitude: 127.0016985) {
         didSet {
             if currentLocation == oldValue { return }
-            print("\(currentLocation.latitude)\n\(currentLocation.longitude)")
             
             moveLocation(delta: 0.01)
             checkNeedToLoadParkingInfo()
@@ -66,7 +65,6 @@ final class MapViewModel {
                 }
                 
                 self?.fetchParkingLotData(district: district)
-                print(district)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -85,6 +83,8 @@ final class MapViewModel {
     }
     
     func setAnnotations(informations: [ParkingInformation]?) {
+        mapViewDelegate?.removeAnnotations()
+
         informations?.forEach { information in
             let coordinate = CLLocationCoordinate2D(latitude: information.latitude,
                                                     longitude: information.longitude)
@@ -104,5 +104,15 @@ final class MapViewModel {
         annotation.subtitle = strSubTitle
 
         mapViewDelegate?.setAnnotation(annotation: annotation)
+    }
+    
+    func findInformationsBy(name: String) -> [ParkingInformation]? {
+        guard let informations = parkingLotManager.informations else {
+            return nil
+        }
+        
+        return informations.filter { information in
+            information.name == name
+        }
     }
 }

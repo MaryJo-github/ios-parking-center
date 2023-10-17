@@ -10,6 +10,8 @@ import Foundation
 typealias ParkingLotRequestResult = (Result<ParkingLot, Error>) -> Void
 
 final class ParkingLotManager {
+    private(set) var informations: [ParkingInformation]?
+    
     func receiveData(district: String, completion: @escaping ParkingLotRequestResult) {
         guard let url = makeURL(district: district) else {
             completion(.failure(URLError.makingURLFail))
@@ -19,9 +21,11 @@ final class ParkingLotManager {
         let urlRequest = URLRequest(url: url)
         
         if let cachedData = URLCache.shared.cachedResponse(for: urlRequest)?.data {
-            print("캐시된 데이터가 있습니다.")
             do {
                 let decodedData = try JSONDecoder().decode(ParkingLot.self, from: cachedData)
+                
+                self.informations = decodedData.getParkingInfo.information
+                
                 completion(.success(decodedData))
             } catch {
                 completion(.failure(DecodeError.decodingFail))
@@ -29,12 +33,14 @@ final class ParkingLotManager {
             return
         }
         
-        NetworkingManager().fetchData(urlRequest: urlRequest, caching: true) { result in
+        NetworkingManager().fetchData(urlRequest: urlRequest, caching: true) { [weak self] result in
             switch result {
             case .success(let data):
                 do {
                     let decodedData = try JSONDecoder().decode(ParkingLot.self, from: data)
 
+                    self?.informations = decodedData.getParkingInfo.information
+                    
                     completion(.success(decodedData))
                 } catch {
                     completion(.failure(DecodeError.decodingFail))

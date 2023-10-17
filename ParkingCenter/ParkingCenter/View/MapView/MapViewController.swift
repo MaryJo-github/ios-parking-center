@@ -54,7 +54,7 @@ final class MapViewController: UIViewController {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             mapView.topAnchor.constraint(equalTo: view.topAnchor),
-            mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
@@ -84,6 +84,8 @@ final class MapViewController: UIViewController {
     }
     
     @objc private func tappedListButton() {
+        dismissModalView()
+        
         let listViewController = ListViewController(
             viewModel: ListViewModel(
                 parkingLotManager: viewModel.parkingLotManager,
@@ -92,6 +94,12 @@ final class MapViewController: UIViewController {
         )
         
         show(listViewController, sender: self)
+    }
+    
+    private func dismissModalView() {
+        if let _ = navigationController?.presentationController {
+            dismiss(animated: true)
+        }
     }
 }
 
@@ -126,15 +134,21 @@ extension MapViewController {
 
 extension MapViewController: MapViewDelegate {
     func setRegion(pRegion: MKCoordinateRegion) {
-        mapView.setRegion(pRegion, animated: true)
+        DispatchQueue.main.async {
+            self.mapView.setRegion(pRegion, animated: true)
+        }
     }
     
     func removeAnnotations() {
-        mapView.removeAnnotations(mapView.annotations)
+        DispatchQueue.main.async {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+        }
     }
     
     func setAnnotation(annotation: MKPointAnnotation) {
-        mapView.addAnnotation(annotation)
+        DispatchQueue.main.async {
+            self.mapView.addAnnotation(annotation)
+        }
     }
 }
 
@@ -159,5 +173,24 @@ extension MapViewController: MKMapViewDelegate {
         guard viewModel.didMoveToInitialLocation == true else { return }
         
         viewModel.currentLocation = mapView.centerCoordinate
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let annotationTitle = view.annotation?.title,
+              let annotationTitle = annotationTitle,
+              let informations = viewModel.findInformationsBy(name: annotationTitle) else {
+            return
+        }
+        
+        dismissModalView()
+        
+        let viewControllerToPresent = ModalViewController(parkingInformations: informations)
+        if let sheet = viewControllerToPresent.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.largestUndimmedDetentIdentifier = .medium
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+        }
+        
+        present(viewControllerToPresent, animated: true, completion: nil)
     }
 }

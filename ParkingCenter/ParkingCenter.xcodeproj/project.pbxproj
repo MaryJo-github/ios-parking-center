@@ -25,6 +25,8 @@
 		441389322AD99B7C006136EE /* LastModifiedDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441389312AD99B7C006136EE /* LastModifiedDateView.swift */; };
 		441389352AD9A1D1006136EE /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441389342AD9A1D1006136EE /* DetailViewModel.swift */; };
 		441389372ADD5A71006136EE /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441389362ADD5A71006136EE /* CALayer+.swift */; };
+		4413893B2ADD942A006136EE /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4413893A2ADD942A006136EE /* ModalViewController.swift */; };
+		4413893E2ADD9DE8006136EE /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4413893D2ADD9DE8006136EE /* ModalView.swift */; };
 		44476BFB2AD3D1D7002C456B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476BFA2AD3D1D7002C456B /* AppDelegate.swift */; };
 		44476BFD2AD3D1D7002C456B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476BFC2AD3D1D7002C456B /* SceneDelegate.swift */; };
 		44476BFF2AD3D1D7002C456B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44476BFE2AD3D1D7002C456B /* MapViewController.swift */; };
@@ -63,6 +65,8 @@
 		441389312AD99B7C006136EE /* LastModifiedDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastModifiedDateView.swift; sourceTree = "<group>"; };
 		441389342AD9A1D1006136EE /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		441389362ADD5A71006136EE /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
+		4413893A2ADD942A006136EE /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		4413893D2ADD9DE8006136EE /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		44476BF72AD3D1D7002C456B /* ParkingCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkingCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44476BFA2AD3D1D7002C456B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44476BFC2AD3D1D7002C456B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				44476BFE2AD3D1D7002C456B /* MapViewController.swift */,
+				4413893C2ADD9DCC006136EE /* ModalView */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -149,6 +154,15 @@
 				441389312AD99B7C006136EE /* LastModifiedDateView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		4413893C2ADD9DCC006136EE /* ModalView */ = {
+			isa = PBXGroup;
+			children = (
+				4413893A2ADD942A006136EE /* ModalViewController.swift */,
+				4413893D2ADD9DE8006136EE /* ModalView.swift */,
+			);
+			path = ModalView;
 			sourceTree = "<group>";
 		};
 		44476BEE2AD3D1D7002C456B = {
@@ -366,8 +380,10 @@
 				44476C1D2AD537FF002C456B /* URLSessionProtocol.swift in Sources */,
 				4413891B2AD9327D006136EE /* ParkingLotTableViewCell.swift in Sources */,
 				44476BFF2AD3D1D7002C456B /* MapViewController.swift in Sources */,
+				4413893E2ADD9DE8006136EE /* ModalView.swift in Sources */,
 				441389322AD99B7C006136EE /* LastModifiedDateView.swift in Sources */,
 				44476C362AD67B59002C456B /* RegionManager.swift in Sources */,
+				4413893B2ADD942A006136EE /* ModalViewController.swift in Sources */,
 				44476C172AD40C4B002C456B /* UserLocation.swift in Sources */,
 				44476BFB2AD3D1D7002C456B /* AppDelegate.swift in Sources */,
 				44476C272AD576CA002C456B /* ParkingLot.swift in Sources */,

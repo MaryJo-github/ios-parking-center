@@ -16,7 +16,7 @@ final class ListViewController: UIViewController {
         textField.borderStyle = .roundedRect
         textField.layer.cornerRadius = 10
         textField.tintColor = .clear
-        textField.backgroundColor = .systemOrange
+        textField.backgroundColor = .systemBlue
         textField.textColor = .white
         textField.textAlignment = .center
         textField.font = .boldSystemFont(ofSize: 20)
