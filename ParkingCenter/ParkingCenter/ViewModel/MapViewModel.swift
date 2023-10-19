@@ -13,7 +13,7 @@ final class MapViewModel {
     let parkingLotManager = ParkingLotManager()
     let regionManager = RegionManager()
     var didMoveToInitialLocation: Bool = false
-    var mapViewDelegate: MapViewDelegate?
+    weak var mapViewDelegate: MapViewDelegate?
     var currentDistrict: String?
 
     var currentLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 37.5642135, longitude: 127.0016985) {

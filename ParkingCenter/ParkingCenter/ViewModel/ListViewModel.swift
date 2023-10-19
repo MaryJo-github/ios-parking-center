@@ -7,7 +7,7 @@
 
 final class ListViewModel {
     let parkingLotManager: ParkingLotManager
-    var listViewDelegate: ListViewDelegate?
+    weak var listViewDelegate: ListViewDelegate?
     var groupedData: [String: [ParkingInformation]]? {
         didSet {
             listViewDelegate?.updateTableView()

@@ -7,7 +7,7 @@
 
 import MapKit
 
-protocol MapViewDelegate {
+protocol MapViewDelegate: AnyObject {
     func setRegion(pRegion: MKCoordinateRegion)
     func removeAnnotations()
     func setAnnotation(annotation: MKPointAnnotation)

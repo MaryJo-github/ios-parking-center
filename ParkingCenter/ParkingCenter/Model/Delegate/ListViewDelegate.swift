@@ -5,7 +5,7 @@
 //  Created by MARY on 2023/10/13.
 //
 
-protocol ListViewDelegate {
+protocol ListViewDelegate: AnyObject {
     func updateTableView()
 }
 
